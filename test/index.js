@@ -1,6 +1,6 @@
 var path = require('path')
 var assert = require('assert')
-var uuidv4 = require('uuid/v4')
+var {v4: uuidv4} = require('uuid')
 var fs = require('fs-extra')
 var os = require('os')
 var execSync = require('child_process').execSync
