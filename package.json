@@ -1,8 +1,8 @@
 {
-  "name": "recursive-install",
+  "name": "recursive-npm",
   "version": "2.0.0",
   "description": "CLI tool to recursive search child directories and run any npm commands when a package.json file is found.",
-  "main": "recursive-install.js",
+  "main": "recursive-npm.js",
   "keywords": [
     "install",
     "recursive",
@@ -12,16 +12,16 @@
     "test": "./node_modules/.bin/mocha"
   },
   "bin": {
-    "npm-recursive-install": "./recursive-install.js"
+    "npm-recursive-npm": "./recursive-npm.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rnarayana/recursive-install"
+    "url": "https://github.com/rnarayana/recursive-npm"
   },
   "author": "Narayana Rengaswamy <rnarayana@gmail.com> (https://twitter.com/rnarayana)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rnarayana/recursive-install/issues"
+    "url": "https://github.com/rnarayana/recursive-npm/issues"
   },
   "dependencies": {
     "shelljs": "^0.8.4",

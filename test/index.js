@@ -6,7 +6,7 @@ var os = require('os')
 var execSync = require('child_process').execSync
 
 
-var script = path.join(__dirname, '../recursive-install.js')
+var script = path.join(__dirname, '../recursive-npm.js')
 
 describe('recursive install', function () {
   var cwd
@@ -25,7 +25,7 @@ describe('recursive install', function () {
       '/notInstalledPaths/node_modules/a-module'
     ]
 
-    cwd = path.join(os.tmpdir(), 'recursive-install'.concat(uuidv4()))
+    cwd = path.join(os.tmpdir(), 'recursive-npm'.concat(uuidv4()))
     fs.ensureDirSync(cwd)
 
     installedPaths.concat(notInstalledPaths).forEach(function (p) {
@@ -189,7 +189,7 @@ describe('recursive install', function () {
 
   describe('test with fail', function () {
     it('fails to install packages', function (done) {
-      cwd = path.join(os.tmpdir(), 'recursive-install'.concat(uuidv4()))
+      cwd = path.join(os.tmpdir(), 'recursive-npm'.concat(uuidv4()))
       fs.ensureDirSync(cwd)
       fs.copySync(path.join(__dirname, 'test-package-fail.json'), path.join(cwd, 'package.json'))
 
