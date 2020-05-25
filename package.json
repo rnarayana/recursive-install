@@ -1,6 +1,6 @@
 {
   "name": "recursive-npm",
-  "version": "2.0.0",
+  "version": "0.1.0",
   "description": "CLI tool to recursive search child directories and run any npm commands when a package.json file is found.",
   "main": "recursive-npm.js",
   "keywords": [
@@ -11,7 +11,7 @@
     "test": "./node_modules/.bin/mocha"
   },
   "bin": {
-    "npm-recursive": "./recursive-npm.js"
+    "recursive-npm": "./recursive-npm.js"
   },
   "repository": {
     "type": "git",
