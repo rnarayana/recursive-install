@@ -12,9 +12,9 @@ This package differs from the original fork in that this supports all other npm 
 
 `$ npm-recursive-npm`
 
-`$ npm-recursive-npm --skip-root` - Will not install in `process.cwd()`
-`$ npm-recursive-npm --rootDir=lib` - Will only install from lib directory
-`$ npm-recursive-npm --production` - Will not install dev dependencies
+`$ npm-recursive-npm -v` - Will print the npm version recursively (kinda not the point!)
+`$ npm-recursive-npm install` - Will run npm install recursively
+`$ npm-recursive-npm install --production --package-lock` - Will not install dev dependencies, but will instead create package-lock.json
 
 ## License
 
