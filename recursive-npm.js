@@ -3,11 +3,6 @@
 const path = require("path");
 const shell = require("shelljs");
 const execSync = require("child_process").execSync;
-const argv = require("yargs").argv;
-
-function noop(x) {
-  return x;
-}
 
 function getPackageJsonLocations(dirname) {
   return shell
@@ -23,19 +18,12 @@ function getPackageJsonLocations(dirname) {
     });
 }
 
-function npmInstall(dir) {
-  var exitCode = 0;
+function runNpmCommand(dir) {
+  let exitCode = 0;
+  let cmd = `npm ${process.argv.slice(2).join(" ")}`;
   try {
-    if (argv.production) {
-      console.log(
-        "Installing " + dir + "/package.json with --production option"
-      );
-      execSync("npm install --production", { cwd: dir });
-    } else {
-      console.log("Installing " + dir + "/package.json");
-      execSync("npm install", { cwd: dir });
-    }
-    console.log("");
+    console.log(`Running ${cmd} in ${dir}`);
+    execSync(cmd, { cwd: dir });
   } catch (err) {
     exitCode = err.status;
   }
@@ -46,21 +34,9 @@ function npmInstall(dir) {
   };
 }
 
-function filterRoot(dir) {
-  if (path.normalize(dir) === path.normalize(process.cwd())) {
-    console.log("Skipping root package.json");
-    return false;
-  } else {
-    return true;
-  }
-}
-
 if (require.main === module) {
-  var exitCode = getPackageJsonLocations(
-    argv.rootDir ? argv.rootDir : process.cwd()
-  )
-    .filter(argv.skipRoot ? filterRoot : noop)
-    .map(npmInstall)
+  var exitCode = getPackageJsonLocations(process.cwd())
+    .map(runNpmCommand)
     .reduce(function (code, result) {
       return result.exitCode > code ? result.exitCode : code;
     }, 0);
