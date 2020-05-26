@@ -10,13 +10,13 @@ This package differs from the original fork in that this supports all other npm 
 
 ## Usage
 
-`$ npm-recursive-npm`
+Replace `npm` with `recursive-npm`
 
-`$ npm-recursive-npm -v` - Will print the npm version recursively (kinda not the point!)\
+`$ recursive-npm <command and arguments>`
 
-`$ npm-recursive-npm install` - Will run npm install recursively
+`$ recursive-npm install` - Will run npm install recursively
 
-`$ npm-recursive-npm install --production --package-lock` - Will not install dev dependencies, but will instead create package-lock.json
+`$ recursive-npm install --production --package-lock` - Will not install dev dependencies, but will instead create package-lock.json
 
 ## License
 
